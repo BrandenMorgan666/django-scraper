@@ -143,7 +143,7 @@ class Scraper(Index):
         page = requests.get(url, headers=headers, timeout=15)
         
         # Ensure we have a success and create the beautiful soup object of the webpage (now ready for scraping)
-        if page.status_code == 200:
+        if page.status_code == requests.codes.ok:
             soup = BeautifulSoup(page.content, "lxml")
         
         # Else return error
